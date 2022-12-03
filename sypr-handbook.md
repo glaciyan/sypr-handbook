@@ -92,9 +92,9 @@ int c = 42;
 ## Typen
 
 - bool
-- [[#char]]
-- [[#int]]
-- [[#float/double]]
+- [char](#char)
+- [int](#int)
+- [float/double](#floatdouble)
 
 > **Note**
 > 
