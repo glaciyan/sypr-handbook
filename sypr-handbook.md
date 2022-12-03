@@ -550,7 +550,7 @@ ANSI-C hat einige limitationen:
 - alle variablen in einer funktion müssen sich am anfang der funktion befinden
 - es gibt kein long long
 
-## Beispiel `ist_ain2_modul`
+## Beendendes Beispiel `ist_ain2_modul`
 
 ```c
 #include "spo3_ain2.h"  
