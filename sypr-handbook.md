@@ -70,7 +70,8 @@ int main(void)
 }
 ```
 
-> [!TIP]
+> **Note**
+> 
 > Für `.h` Datein von der std benutzt man `< >` Klammern.
 > Für eigene `.h` Datein `" "`.
 
@@ -95,10 +96,12 @@ int c = 42;
 - [[#int]]
 - [[#float/double]]
 
-> [!TIP]
+> **Note**
+> 
 > Die wichtigsten Typen sind `int`, `double`, `bool` und `char`
 
-> [!WARNING] 
+> **Warning** 
+> 
 > `bool` muss in C mit `#include <stdbool.h>` included werden
 
 ### Daten modelle
@@ -134,7 +137,7 @@ Für int werte welche immer gleich groß sein sollen verwendet man [Fixed width 
 (unsigned, signed) (short, long, long long) int
 ```
 
-![[Pasted image 20221202134244.png]]
+![Int Variants](./images/int.png)
 
 ### float/double
 
@@ -171,7 +174,8 @@ Wenn man variablen anlegt oder Funktionen aufruft werden diese Daten in den Stac
 #### Heap
 Sehr großer Speicherplatz aber schwere Handarbeit in C
 
-![[Pasted image 20221202161720.png]]
+![Memory](./images/memory.png)
+
 Ein Array welches Zahlen in String-Repräsentation hält (links die Adresse, dann die daten in Hex-Format, und dann ein versuch die daten zu einem ASCII String zu formatieren), wie wir sehen können befinden sich alle daten an einer bestimmten Position, die Adresse.
 
 Wenn wir also ein `int` anlegen wird diese als 4 Bytes in den Stack gespeichert, wenn wir diesen code schreiben:
@@ -184,7 +188,8 @@ Der Stack fängt von ganz oben an, also sieht eine Adresse im Stack für gewöhn
 
 ### Wieso Pointer und `malloc`
 
-> [!INFO]
+> **Note**
+> 
 > Um `malloc`, `calloc` und `free` zu verwenden musst du `stdlib.h` includen.
 
 Da wir jetzt große Daten in unserem Programm verwenden wollen benötigen wir jetzt mehr Speicher. Der Stack, den wir bis jetzt immer verwendet haben, hat ja aber nur ein klein wenig Speicher. Da kommt jetzt der **Heap** ins Spiel.
@@ -228,10 +233,12 @@ int b = *ptr; // b == a
 ### free
 Immer wenn man fertig mit dem Speicher ist, `free` aufrufen.
 
-> [!WARNING]
+> **Warning**
+> 
 > Das Programm kann an vielen stellen enden. Also immer vorsichtig und überall `free` aufrufen.
 
-> [!TIP]
+> **Note**
+> 
 > Arrays von Zeigern, z.B. `char**`, müssen erst alle Elemente mit einer `for` ge`free`'d werden und dann das Array selbst.
 > ```c
 > for (int i = 0; i < arrSize; ++i)
@@ -256,7 +263,8 @@ Dann um den Elementen einen Wert zu geben, schreiben wir:
 *(intArray + 1) = 456; // intArray[1]
 *(intArray + 2) = 789; // intArray[2]
 ```
-![[Pasted image 20221202181133.png]]
+
+![Pointer Arithmetik](./images/pointer.png)
 
 oder das Gleiche mit der Array Schreibweise:
 ```c
@@ -265,7 +273,8 @@ intArray[1] = 456;
 intArray[2] = 789;
 ```
 
-> [!WARNING]
+> **Warning**
+> 
 > Nicht vergessen!
 > ```c
 > free(intArray);
@@ -274,7 +283,8 @@ intArray[2] = 789;
 ### Array (Stack)
 Alternativ können Arrays auch auf dem Stack gespeichert werden.
 
-> [!WARNING]
+> **Warning**
+> 
 > Nur kleine Arrays auf den Stack speichern.
 
 ```c
@@ -295,12 +305,12 @@ Der typ von einem String ist für gewöhnlich `const char*` oder auch einfach nu
 
 int main(void)
 {
-    const char* hallo = "Hallo";
-    // hallo[0] = 'q'; error: assignment of read-only location '*hallo'
-    char* hallo2 = NULL;
-    hallo2 = "Guten Tag.";
+    const char* hallo = "Hallo";
+    // hallo[0] = 'q'; error: assignment of read-only location '*hallo'
+    char* hallo2 = NULL;
+    hallo2 = "Guten Tag.";
 
-    printf("%s und %s\n", hallo, hallo2);
+    printf("%s und %s\n", hallo, hallo2);
 }
 ```
 
@@ -378,7 +388,8 @@ int main(void)
 }
 ```
 
-> [!WARNING]
+> **Warning**
+> 
 > `typeof` kann alle möglichem typen definieren:
 > ```c
 > typedef int my_cool_int;
@@ -431,7 +442,8 @@ int main(void)
 
 ## Header Datei
 
-> [!INFO]
+> **Note**
+> 
 > **Header Datei definiert. C Datei implementiert.**
 
 Eine Header Datei benötigt auch einen Header-Guard, um nicht mehrmals included zu werden.
