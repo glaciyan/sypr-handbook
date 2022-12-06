@@ -253,7 +253,9 @@ Immer wenn man fertig mit dem Speicher ist, `free` aufrufen.
 Um ein Array in C zu erstellen, sagen wir einfach "ich will 3 `int`s speichern".
 
 ```c
-int *intArray = (int*) malloc(sizeof(int) * 3)
+int *intArray = (int*) malloc(sizeof(int) * 3);
+// oder
+int *intArray = (int*) calloc(3, sizeof(int));
 ```
 
 Dann um den Elementen einen Wert zu geben, schreiben wir:
