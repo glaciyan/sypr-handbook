@@ -454,6 +454,8 @@ int main(void)
     pep->gender = 'M';
 
     printf("age: %d, gender: %c", pep->age, pep->gender);
+
+    free(pep);
 }
 ```
 
