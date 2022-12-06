@@ -215,6 +215,8 @@ int *pointerZuInt = (int*) calloc(1, sizeof(int)); // speicher für ein int
 int *pointerArray = (int*) calloc(5, sizeof(int)); // speicher für int[5]
 ```
 
+`calloc` setzt den ganzen reservierten Speicher zu 0. `00000000...`
+
 ### Operatoren für Pointer
 
 Für die Adresse von einem Wert benutze `&`
