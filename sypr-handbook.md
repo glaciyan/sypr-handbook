@@ -1,5 +1,5 @@
 # SYPR Handbook
-von Kevin Trautvetter 03.12.2022
+von Kevin Trautvetter 06.12.2022
 
 [cppreference](https://en.cppreference.com/w/)
 
