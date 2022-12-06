@@ -301,21 +301,34 @@ const size_t arrSize = sizeof(a) / sizeof(int);
 ## String
 Strings sind `char` Arrays mit `\0` am Ende. z.B. `Hallo\0`. Also immer daran denken genug Speicher für das `\0` zu machen.
 
-Der typ von einem String ist für gewöhnlich `const char*` oder auch einfach nur `char*`
+Der typ von einem String ist für gewöhnlich `const char*`, bei literalen, oder einfach nur `char*` wenn man selber mit dem String arbeiten.
 
 ```c
 #include <stddef.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 int main(void)
 {
-    const char* hallo = "Hallo";
+    const char* hallo = "Hallo"; // die chars sind const
     // hallo[0] = 'q'; error: assignment of read-only location '*hallo'
-    char* hallo2 = NULL;
-    hallo2 = "Guten Tag.";
+    char* const hallo2 = NULL; // der pointer, hallo2, ist const
+    // hallo2 = "Guten Tag."; error: assignment of read-only variable 'hallo2'
 
-    printf("%s und %s\n", hallo, hallo2);
+    int size = 20;
+    char* str = (char*) calloc(size, sizeof(char));
+    for (int i = 0; i < size - 1; i++) {
+        str[i] = 'A';
+    }
+    str[size - 1] = '\0'; // 19 mal A, 1 mal \0
+
+    printf("%s %s\n", hallo, str);
+    free(str);
 }
+```
+Output:
+```
+Hallo AAAAAAAAAAAAAAAAAAA
 ```
 
 ## Args
