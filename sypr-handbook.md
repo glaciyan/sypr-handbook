@@ -26,6 +26,11 @@ int main(void)
 
 ### `#include`
 
+> **Note**
+> 
+> Für `.h` Datein von der std benutzt man `< >` Klammern.
+> Für eigene `.h` Datein `" "`.
+
 `#include` kopiert den Inhalt von einer Datei an der Stelle vom `#include`.
 
 #### Beispiel
@@ -69,11 +74,6 @@ int main(void)
     hallo();
 }
 ```
-
-> **Note**
-> 
-> Für `.h` Datein von der std benutzt man `< >` Klammern.
-> Für eigene `.h` Datein `" "`.
 
 ### `define`
 
